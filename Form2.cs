@@ -16,15 +16,5 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         {
             InitializeComponent();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

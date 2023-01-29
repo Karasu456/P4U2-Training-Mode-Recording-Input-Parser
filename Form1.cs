@@ -205,16 +205,18 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             catch (Exception)
             {
                 Console.WriteLine("An error has occurred. Please try again!");
+#pragma warning disable CS8603 // Possible null reference return.
                 return null;
+#pragma warning restore CS8603 // Possible null reference return.
             }
         }
         private static List<string> ConstructInputLog(List<string> recordingData, bool facingRight) //Constructs Input Log from Sorted Recording Data 
         {
             List<string> constructedInputLog = new List<string>();
             //bool facingRight = false;
-            string currentAttack = "", currentNumpadKey = "";
+            string currentAttack, currentNumpadKey;
             int currentFrame = 0, inputFrameCount = 1;
-            string tmpInput = "";
+            string tmpInput;
 
             //Determine if player is initially facing Right or Left
             //Terrible Logic for Determining This Lmfao
@@ -387,7 +389,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         private static List<string> ConvertToEKey(List<string> listToConvert) //Converts Input List to Facing Left for Enemy Input 
         {
             List<string> eKeyList = new List<string>();
-            string currentNumpadKey = "";
+            string currentNumpadKey;
             //eKeyList.Add("-KEY-");
             for (int i = 0; i < listToConvert.Count; i++)
             {
@@ -440,8 +442,8 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             string currentDateAndTime = string.Format("{0:MM-dd-yyyy_HH-mm-ss}", DateTime.Now);
             string outputLeft = "Enemy Input";
             string outputRight = "Demonstration";
-            string direction = "";
-            string writeOutputPath = "";
+            string direction;
+            string writeOutputPath;
             
             if(recordingFacingRight == true)
             {
@@ -892,7 +894,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             toolTipper.SetToolTip(checkboxOutputRight, "When checked, the program will create the output as facing right.");
             toolTipper.SetToolTip(btnParse, "When pressed, the program will create the output in the respective direction and mode(s) selected.");
         }
-        private void stripMenuOpen_Click(object sender, EventArgs e) //Update File Directory for P4U2 Save File
+        private void StripMenuOpen_Click(object sender, EventArgs e) //Update File Directory for P4U2 Save File
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.InitialDirectory = appDataFolder + "\\P4U2\\Save";
@@ -907,7 +909,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 textboxSaveDirectory.Text = saveFilePath;
             }
         }
-        private void stripMenuSetOutput_Click(object sender, EventArgs e)//Update Output Directory for Parsed Input Files 
+        private void StripMenuSetOutput_Click(object sender, EventArgs e)//Update Output Directory for Parsed Input Files 
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             //fbd.Description = "Select an output directory that is easy to recall and relocate.";
@@ -917,11 +919,11 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 textboxOutputDirectory.Text = defaultOutputPath;
             }
         }
-        private void stripMenuClose_Click(object sender, EventArgs e)//Close Program 
+        private void StripMenuClose_Click(object sender, EventArgs e)//Close Program 
         {
             Close();
         }
-        private void stripMenuDocumentation_Click(object sender, EventArgs e)//Opens Link to Github documentation page 
+        private void StripMenuDocumentation_Click(object sender, EventArgs e)//Opens Link to Github documentation page 
         {
             string target = "http://www.microsoft.com";
             try
@@ -938,13 +940,13 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 MessageBox.Show(other.Message);
             }
         }
-        private void stripMenuAbout_Click(object sender, EventArgs e)//Opens New Form with information about the program 
+        private void StripMenuAbout_Click(object sender, EventArgs e)//Opens New Form with information about the program 
         {
             Form2 myForm = new Form2();
             myForm.StartPosition = FormStartPosition.CenterParent;
             myForm.ShowDialog();
         }
-        private void btnParse_Click(object sender, EventArgs e) //Displays User P4U2 Save Data according to recording selected, direction faced, and output mode
+        private void BtnParse_Click(object sender, EventArgs e) //Displays User P4U2 Save Data according to recording selected, direction faced, and output mode
         {
             int recordingOption = 0;
             bool recordingFacingRight = false, modeSelectFacingLeft = false, modeSelectFacingRight = false, modeSelectGenerateTxt = false;
@@ -1001,12 +1003,10 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             }
 
             //Sorted Recording data from save.dat
-            List<string>[] sortedRecordings = new List<string>[5];
-            sortedRecordings = SortRecordings(saveFilePath);
+            List<string>[] sortedRecordings = SortRecordings(saveFilePath);
 
             //Recording 1
-            List<string> inputLog = new List<string>();
-            inputLog = ConstructInputLog(sortedRecordings[0], recordingFacingRight);
+            List<string> inputLog = ConstructInputLog(sortedRecordings[0], recordingFacingRight);
             List<string> eInputLog = new List<string>();
             if (recordingFacingRight == false)
             {
@@ -1018,8 +1018,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             }
 
             //Recording 2
-            List<string> inputLog2 = new List<string>();
-            inputLog2 = ConstructInputLog(sortedRecordings[1], recordingFacingRight);
+            List<string> inputLog2 = ConstructInputLog(sortedRecordings[1], recordingFacingRight);
             List<string> eInputLog2 = new List<string>();
             if (recordingFacingRight == false)
             {
@@ -1031,8 +1030,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             }
 
             //Recording 3
-            List<string> inputLog3 = new List<string>();
-            inputLog3 = ConstructInputLog(sortedRecordings[2], recordingFacingRight);
+            List<string> inputLog3 = ConstructInputLog(sortedRecordings[2], recordingFacingRight);
             List<string> eInputLog3 = new List<string>();
             if (recordingFacingRight == false)
             {
@@ -1044,8 +1042,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             }
 
             //Recording 4
-            List<string> inputLog4 = new List<string>();
-            inputLog4 = ConstructInputLog(sortedRecordings[3], recordingFacingRight);
+            List<string> inputLog4 = ConstructInputLog(sortedRecordings[3], recordingFacingRight);
             List<string> eInputLog4 = new List<string>();
             if (recordingFacingRight == false)
             {
@@ -1057,8 +1054,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             }
 
             //Recording 5
-            List<string> inputLog5 = new List<string>();
-            inputLog5 = ConstructInputLog(sortedRecordings[4], recordingFacingRight);
+            List<string> inputLog5 = ConstructInputLog(sortedRecordings[4], recordingFacingRight);
             List<string> eInputLog5 = new List<string>();
             if (recordingFacingRight == false)
             {
@@ -1077,7 +1073,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             DisplayAndWriteData(inputLogs, enemyInputLogs, outputSettings, recordingOption);
         }
 
-        private void btnClear_Click(object sender, EventArgs e)//Clear Textboxes in Form 
+        private void BtnClear_Click(object sender, EventArgs e)//Clear Textboxes in Form 
         {
             textboxParsedRecordingKEY.Text = "";
             textboxParsedRecordingEKEY.Text = "";
