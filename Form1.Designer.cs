@@ -116,7 +116,7 @@
             this.btnClear.TabStop = false;
             this.btnClear.Text = "Clear Data";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // lblDirection
             // 
@@ -193,7 +193,7 @@
             this.btnParse.TabStop = false;
             this.btnParse.Text = "Parse Input Data";
             this.btnParse.UseVisualStyleBackColor = false;
-            this.btnParse.Click += new System.EventHandler(this.btnParse_Click);
+            this.btnParse.Click += new System.EventHandler(this.BtnParse_Click);
             // 
             // radioRecordingAll
             // 
@@ -482,7 +482,7 @@
             this.stripMenuOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.stripMenuOpen.Size = new System.Drawing.Size(266, 22);
             this.stripMenuOpen.Text = "Load Save File...";
-            this.stripMenuOpen.Click += new System.EventHandler(this.stripMenuOpen_Click);
+            this.stripMenuOpen.Click += new System.EventHandler(this.StripMenuOpen_Click);
             // 
             // stripMenuSetOutput
             // 
@@ -491,14 +491,14 @@
             | System.Windows.Forms.Keys.O)));
             this.stripMenuSetOutput.Size = new System.Drawing.Size(266, 22);
             this.stripMenuSetOutput.Text = "Set Output Directory...";
-            this.stripMenuSetOutput.Click += new System.EventHandler(this.stripMenuSetOutput_Click);
+            this.stripMenuSetOutput.Click += new System.EventHandler(this.StripMenuSetOutput_Click);
             // 
             // stripMenuClose
             // 
             this.stripMenuClose.Name = "stripMenuClose";
             this.stripMenuClose.Size = new System.Drawing.Size(266, 22);
             this.stripMenuClose.Text = "Close";
-            this.stripMenuClose.Click += new System.EventHandler(this.stripMenuClose_Click);
+            this.stripMenuClose.Click += new System.EventHandler(this.StripMenuClose_Click);
             // 
             // stripMenuHelp
             // 
@@ -514,7 +514,7 @@
             this.stripMenuDocumentation.Name = "stripMenuDocumentation";
             this.stripMenuDocumentation.Size = new System.Drawing.Size(157, 22);
             this.stripMenuDocumentation.Text = "Documentation";
-            this.stripMenuDocumentation.Click += new System.EventHandler(this.stripMenuDocumentation_Click);
+            this.stripMenuDocumentation.Click += new System.EventHandler(this.StripMenuDocumentation_Click);
             // 
             // stripMenuAbout
             // 
@@ -522,7 +522,7 @@
             this.stripMenuAbout.Name = "stripMenuAbout";
             this.stripMenuAbout.Size = new System.Drawing.Size(52, 20);
             this.stripMenuAbout.Text = "About";
-            this.stripMenuAbout.Click += new System.EventHandler(this.stripMenuAbout_Click);
+            this.stripMenuAbout.Click += new System.EventHandler(this.StripMenuAbout_Click);
             // 
             // menuStrip1
             // 
