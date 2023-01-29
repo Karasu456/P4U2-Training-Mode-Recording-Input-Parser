@@ -1,0 +1,7 @@
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.pdb
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\D3DCompiler_47_cor3.dll
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\PenImc_cor3.dll
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\PresentationNative_cor3.dll
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\vcruntime140_cor3.dll
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\wpfgfx_cor3.dll
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.exe

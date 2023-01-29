@@ -1,0 +1,5 @@
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.exe
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.dll
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.deps.json
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.runtimeconfig.json
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\P4U2 Training Mode Recording Input Parser.pdb

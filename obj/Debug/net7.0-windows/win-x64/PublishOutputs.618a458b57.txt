@@ -1,0 +1,2 @@
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\P4U2 Training Mode Recording Input Parser.pdb
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\P4U2 Training Mode Recording Input Parser.exe

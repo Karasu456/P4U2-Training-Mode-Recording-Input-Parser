@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "P4U2 Training Mode Recording Input Parser/1.0.0": {
+        "runtime": {
+          "P4U2 Training Mode Recording Input Parser.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "P4U2 Training Mode Recording Input Parser/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

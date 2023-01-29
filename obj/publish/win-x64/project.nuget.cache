@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "rg4TNak7c76qRmcBxXoLolkMPf9GVSCfVeZFIaAl6t8504I1jie+U5TmelfR/KqvWd4Kgf+97uZLUDix6f0qoA==",
+  "success": true,
+  "projectFilePath": "G:\\P4U Modding\\P4U2 Recording to Trial Data\\P4U2 Training Mode Recording Input Parser\\P4U2 Training Mode Recording Input Parser.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stray\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.1\\microsoft.netcore.app.runtime.win-x64.7.0.1.nupkg.sha512",
+    "C:\\Users\\stray\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.1\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.1.nupkg.sha512",
+    "C:\\Users\\stray\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.1\\microsoft.aspnetcore.app.runtime.win-x64.7.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
