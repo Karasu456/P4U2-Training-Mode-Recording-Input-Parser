@@ -925,7 +925,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         }
         private void StripMenuDocumentation_Click(object sender, EventArgs e)//Opens Link to Github documentation page 
         {
-            string target = "http://www.microsoft.com";
+            string target = "https://github.com/Karasu456/P4U2-Training-Mode-Recording-Input-Parser/wiki";
             try
             {
                 System.Diagnostics.Process.Start("cmd", "/c start " + target);
