@@ -429,10 +429,10 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             List<string> inputLog5 = inputLogArray[4];
 
             List<string> eInputLog = enemyInputLogArray[0];
-            List<string> eInputLog2 = enemyInputLogArray[0];
-            List<string> eInputLog3 = enemyInputLogArray[0];
-            List<string> eInputLog4 = enemyInputLogArray[0];
-            List<string> eInputLog5 = enemyInputLogArray[0];
+            List<string> eInputLog2 = enemyInputLogArray[1];
+            List<string> eInputLog3 = enemyInputLogArray[2];
+            List<string> eInputLog4 = enemyInputLogArray[3];
+            List<string> eInputLog5 = enemyInputLogArray[4];
 
             bool recordingFacingRight = outputSettings[0];
             bool modeSelectFacingLeft = outputSettings[1];
