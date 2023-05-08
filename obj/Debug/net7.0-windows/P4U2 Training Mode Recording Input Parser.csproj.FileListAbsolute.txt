@@ -18,3 +18,23 @@ G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input P
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\ref\P4U2 Training Mode Recording Input Parser.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Form2.resources
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Popup.resources
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.exe
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.deps.json
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.runtimeconfig.json
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.dll
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.pdb
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.csproj.AssemblyReference.cache
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Form1.resources
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Form2.resources
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Popup.resources
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Properties.Resources.resources
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.csproj.GenerateResource.cache
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.AssemblyInfoInputs.cache
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.AssemblyInfo.cs
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.csproj.CoreCompileInputs.cache
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.dll
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\refint\P4U2 Training Mode Recording Input Parser.dll
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.pdb
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.genruntimeconfig.cache
+C:\Users\stray\Documents\GitHub\P4U2-Training-Mode-Recording-Input-Parser\obj\Debug\net7.0-windows\ref\P4U2 Training Mode Recording Input Parser.dll

@@ -14,7 +14,8 @@
     "additionalProbingPaths": [
       "C:\\Users\\stray\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\stray\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,

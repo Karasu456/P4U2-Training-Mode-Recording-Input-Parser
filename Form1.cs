@@ -10,8 +10,8 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
     {
         //Save.dat File Pathing
         public static string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        public static string saveFilePath = appDataFolder + "\\P4U2\\Save\\save.dat";
-        public static string defaultOutputPath = appDataFolder + "\\P4U2\\Save\\Recordings";
+        public string saveFilePath = appDataFolder + "\\P4U2\\Save\\save.dat";
+        public string defaultOutputPath = appDataFolder + "\\P4U2\\Save\\Recordings";
 
         public Form1()
         {
@@ -905,7 +905,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             openFileDialog1.ShowReadOnly = true;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                saveFilePath = openFileDialog1.InitialDirectory;
+                saveFilePath = openFileDialog1.FileName;
                 textboxSaveDirectory.Text = saveFilePath;
             }
         }
