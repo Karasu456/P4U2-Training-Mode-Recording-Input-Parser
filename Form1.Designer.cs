@@ -132,7 +132,7 @@
             this.checkboxRecordingLeft.Checked = true;
             this.checkboxRecordingLeft.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkboxRecordingLeft.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkboxRecordingLeft.Location = new System.Drawing.Point(12, 262);
+            this.checkboxRecordingLeft.Location = new System.Drawing.Point(10, 287);
             this.checkboxRecordingLeft.Name = "checkboxRecordingLeft";
             this.checkboxRecordingLeft.Size = new System.Drawing.Size(97, 19);
             this.checkboxRecordingLeft.TabIndex = 24;
@@ -169,7 +169,7 @@
             this.checkboxRecordingRight.AutoSize = true;
             this.checkboxRecordingRight.BackColor = System.Drawing.SystemColors.Control;
             this.checkboxRecordingRight.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkboxRecordingRight.Location = new System.Drawing.Point(12, 287);
+            this.checkboxRecordingRight.Location = new System.Drawing.Point(10, 262);
             this.checkboxRecordingRight.Name = "checkboxRecordingRight";
             this.checkboxRecordingRight.Size = new System.Drawing.Size(89, 19);
             this.checkboxRecordingRight.TabIndex = 23;
