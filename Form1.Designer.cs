@@ -43,17 +43,14 @@
             this.textboxSaveDirectory = new System.Windows.Forms.TextBox();
             this.checkboxOutputTxtFiles = new System.Windows.Forms.CheckBox();
             this.radioRecording2 = new System.Windows.Forms.RadioButton();
-            this.checkboxOutputLeft = new System.Windows.Forms.CheckBox();
-            this.checkboxOutputRight = new System.Windows.Forms.CheckBox();
+            this.checkboxOutputEKEY = new System.Windows.Forms.CheckBox();
+            this.checkboxOutputKEY = new System.Windows.Forms.CheckBox();
             this.radioRecording1 = new System.Windows.Forms.RadioButton();
             this.lblMode = new System.Windows.Forms.Label();
             this.radioRecording3 = new System.Windows.Forms.RadioButton();
             this.lblRecording = new System.Windows.Forms.Label();
             this.radioRecording4 = new System.Windows.Forms.RadioButton();
             this.radioRecording5 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textboxParsedRecordingEKEY = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textboxParsedRecordingKEY = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,7 +63,6 @@
             this.stripMenuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,8 +85,8 @@
             this.panel1.Controls.Add(this.textboxSaveDirectory);
             this.panel1.Controls.Add(this.checkboxOutputTxtFiles);
             this.panel1.Controls.Add(this.radioRecording2);
-            this.panel1.Controls.Add(this.checkboxOutputLeft);
-            this.panel1.Controls.Add(this.checkboxOutputRight);
+            this.panel1.Controls.Add(this.checkboxOutputEKEY);
+            this.panel1.Controls.Add(this.checkboxOutputKEY);
             this.panel1.Controls.Add(this.radioRecording1);
             this.panel1.Controls.Add(this.lblMode);
             this.panel1.Controls.Add(this.radioRecording3);
@@ -101,7 +97,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(242, 542);
+            this.panel1.Size = new System.Drawing.Size(242, 504);
             this.panel1.TabIndex = 1;
             // 
             // btnClear
@@ -109,7 +105,7 @@
             this.btnClear.BackColor = System.Drawing.SystemColors.Control;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClear.Location = new System.Drawing.Point(132, 501);
+            this.btnClear.Location = new System.Drawing.Point(132, 469);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(104, 27);
             this.btnClear.TabIndex = 26;
@@ -138,10 +134,10 @@
             this.checkboxRecordingLeft.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkboxRecordingLeft.Location = new System.Drawing.Point(12, 262);
             this.checkboxRecordingLeft.Name = "checkboxRecordingLeft";
-            this.checkboxRecordingLeft.Size = new System.Drawing.Size(89, 19);
+            this.checkboxRecordingLeft.Size = new System.Drawing.Size(97, 19);
             this.checkboxRecordingLeft.TabIndex = 24;
             this.checkboxRecordingLeft.TabStop = false;
-            this.checkboxRecordingLeft.Text = "Facing Left?";
+            this.checkboxRecordingLeft.Text = "Facing Right?";
             this.checkboxRecordingLeft.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -175,10 +171,10 @@
             this.checkboxRecordingRight.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkboxRecordingRight.Location = new System.Drawing.Point(12, 287);
             this.checkboxRecordingRight.Name = "checkboxRecordingRight";
-            this.checkboxRecordingRight.Size = new System.Drawing.Size(97, 19);
+            this.checkboxRecordingRight.Size = new System.Drawing.Size(89, 19);
             this.checkboxRecordingRight.TabIndex = 23;
             this.checkboxRecordingRight.TabStop = false;
-            this.checkboxRecordingRight.Text = "Facing Right?";
+            this.checkboxRecordingRight.Text = "Facing Left?";
             this.checkboxRecordingRight.UseVisualStyleBackColor = false;
             // 
             // btnParse
@@ -186,7 +182,7 @@
             this.btnParse.BackColor = System.Drawing.SystemColors.Control;
             this.btnParse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParse.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnParse.Location = new System.Drawing.Point(3, 501);
+            this.btnParse.Location = new System.Drawing.Point(3, 469);
             this.btnParse.Name = "btnParse";
             this.btnParse.Size = new System.Drawing.Size(123, 27);
             this.btnParse.TabIndex = 18;
@@ -285,33 +281,33 @@
             this.radioRecording2.Text = "Recording 2";
             this.radioRecording2.UseVisualStyleBackColor = false;
             // 
-            // checkboxOutputLeft
+            // checkboxOutputEKEY
             // 
-            this.checkboxOutputLeft.AutoSize = true;
-            this.checkboxOutputLeft.BackColor = System.Drawing.SystemColors.Control;
-            this.checkboxOutputLeft.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkboxOutputLeft.Location = new System.Drawing.Point(12, 327);
-            this.checkboxOutputLeft.Name = "checkboxOutputLeft";
-            this.checkboxOutputLeft.Size = new System.Drawing.Size(162, 19);
-            this.checkboxOutputLeft.TabIndex = 13;
-            this.checkboxOutputLeft.TabStop = false;
-            this.checkboxOutputLeft.Text = "Facing Left (Enemy Input)";
-            this.checkboxOutputLeft.UseVisualStyleBackColor = false;
+            this.checkboxOutputEKEY.AutoSize = true;
+            this.checkboxOutputEKEY.BackColor = System.Drawing.SystemColors.Control;
+            this.checkboxOutputEKEY.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkboxOutputEKEY.Location = new System.Drawing.Point(12, 327);
+            this.checkboxOutputEKEY.Name = "checkboxOutputEKEY";
+            this.checkboxOutputEKEY.Size = new System.Drawing.Size(139, 19);
+            this.checkboxOutputEKEY.TabIndex = 13;
+            this.checkboxOutputEKEY.TabStop = false;
+            this.checkboxOutputEKEY.Text = "Enemy Dummy Input";
+            this.checkboxOutputEKEY.UseVisualStyleBackColor = false;
             // 
-            // checkboxOutputRight
+            // checkboxOutputKEY
             // 
-            this.checkboxOutputRight.AutoSize = true;
-            this.checkboxOutputRight.BackColor = System.Drawing.SystemColors.Control;
-            this.checkboxOutputRight.Checked = true;
-            this.checkboxOutputRight.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkboxOutputRight.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkboxOutputRight.Location = new System.Drawing.Point(12, 352);
-            this.checkboxOutputRight.Name = "checkboxOutputRight";
-            this.checkboxOutputRight.Size = new System.Drawing.Size(182, 19);
-            this.checkboxOutputRight.TabIndex = 12;
-            this.checkboxOutputRight.TabStop = false;
-            this.checkboxOutputRight.Text = "Facing Right (Demonstration)";
-            this.checkboxOutputRight.UseVisualStyleBackColor = false;
+            this.checkboxOutputKEY.AutoSize = true;
+            this.checkboxOutputKEY.BackColor = System.Drawing.SystemColors.Control;
+            this.checkboxOutputKEY.Checked = true;
+            this.checkboxOutputKEY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkboxOutputKEY.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkboxOutputKEY.Location = new System.Drawing.Point(12, 352);
+            this.checkboxOutputKEY.Name = "checkboxOutputKEY";
+            this.checkboxOutputKEY.Size = new System.Drawing.Size(136, 19);
+            this.checkboxOutputKEY.TabIndex = 12;
+            this.checkboxOutputKEY.TabStop = false;
+            this.checkboxOutputKEY.Text = "Demonstration Input";
+            this.checkboxOutputKEY.UseVisualStyleBackColor = false;
             // 
             // radioRecording1
             // 
@@ -385,72 +381,32 @@
             this.radioRecording5.Text = "Recording 5";
             this.radioRecording5.UseVisualStyleBackColor = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(218, 15);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Parsed Recording(s) - Facing Left (EKEY)";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.textboxParsedRecordingEKEY);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(496, 24);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(242, 542);
-            this.panel2.TabIndex = 2;
-            // 
-            // textboxParsedRecordingEKEY
-            // 
-            this.textboxParsedRecordingEKEY.BackColor = System.Drawing.SystemColors.Control;
-            this.textboxParsedRecordingEKEY.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textboxParsedRecordingEKEY.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textboxParsedRecordingEKEY.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textboxParsedRecordingEKEY.Location = new System.Drawing.Point(0, 15);
-            this.textboxParsedRecordingEKEY.Multiline = true;
-            this.textboxParsedRecordingEKEY.Name = "textboxParsedRecordingEKEY";
-            this.textboxParsedRecordingEKEY.ReadOnly = true;
-            this.textboxParsedRecordingEKEY.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textboxParsedRecordingEKEY.Size = new System.Drawing.Size(238, 523);
-            this.textboxParsedRecordingEKEY.TabIndex = 22;
-            this.textboxParsedRecordingEKEY.TabStop = false;
-            // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 15);
+            this.label5.Size = new System.Drawing.Size(231, 19);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Parsed Recording(s) - Facing Right (KEY)";
+            this.label5.Text = "Parsed Recording(s)";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textboxParsedRecordingKEY
             // 
             this.textboxParsedRecordingKEY.BackColor = System.Drawing.SystemColors.Control;
-            this.textboxParsedRecordingKEY.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxParsedRecordingKEY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textboxParsedRecordingKEY.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textboxParsedRecordingKEY.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textboxParsedRecordingKEY.Location = new System.Drawing.Point(0, 15);
+            this.textboxParsedRecordingKEY.Location = new System.Drawing.Point(0, 19);
             this.textboxParsedRecordingKEY.Multiline = true;
             this.textboxParsedRecordingKEY.Name = "textboxParsedRecordingKEY";
             this.textboxParsedRecordingKEY.ReadOnly = true;
             this.textboxParsedRecordingKEY.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textboxParsedRecordingKEY.Size = new System.Drawing.Size(250, 523);
+            this.textboxParsedRecordingKEY.Size = new System.Drawing.Size(231, 481);
             this.textboxParsedRecordingKEY.TabIndex = 21;
             this.textboxParsedRecordingKEY.TabStop = false;
             // 
@@ -462,7 +418,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(242, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(254, 542);
+            this.panel3.Size = new System.Drawing.Size(235, 504);
             this.panel3.TabIndex = 3;
             // 
             // stripMenuFile
@@ -534,7 +490,7 @@
             this.stripMenuAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(738, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(477, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -543,9 +499,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(738, 566);
+            this.ClientSize = new System.Drawing.Size(477, 528);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -556,8 +511,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -578,16 +531,13 @@
         private RadioButton radioRecording5;
         private Label lblMode;
         private Label lblRecording;
-        private CheckBox checkboxOutputRight;
-        private CheckBox checkboxOutputLeft;
+        private CheckBox checkboxOutputKEY;
+        private CheckBox checkboxOutputEKEY;
         private Button btnParse;
         private RadioButton radioRecordingAll;
         private Label lblOutputDirectory;
         private TextBox textboxOutputDirectory;
         private CheckBox checkboxOutputTxtFiles;
-        private Label label4;
-        private Panel panel2;
-        public TextBox textboxParsedRecordingEKEY;
         private Label label5;
         public TextBox textboxParsedRecordingKEY;
         private Label lblTitle;
