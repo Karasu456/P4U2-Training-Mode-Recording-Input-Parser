@@ -139,7 +139,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                     tmp = hexData.Substring(i, 4);
                     hexDataList.Add(tmp);
                 }
-                
+
                 for (int i = 0; i < hexDataList.Count; i++)
                 {
                     if (hexDataList[i].Equals("FFFF"))
@@ -438,8 +438,8 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             string outputRight = "Demonstration";
             string direction;
             string writeOutputPath;
-            
-            if(recordingFacingRight == true)
+
+            if (recordingFacingRight == true)
             {
                 direction = "Facing R";
             }
@@ -458,7 +458,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                     {
                         displayInputLog += "-KEY-" + System.Environment.NewLine;
                     }
-                    if(checkboxOutputEKEY.Checked)
+                    if (checkboxOutputEKEY.Checked)
                     {
                         displayInputLog += "-EKEY-" + System.Environment.NewLine;
                     }
@@ -834,11 +834,11 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             }
 
         }
-        private void Form1_Load(object sender, EventArgs e )
+        private void Form1_Load(object sender, EventArgs e)
         {
             //Output Default Save/Output Directory
             textboxSaveDirectory.Text = saveFilePath;
-            textboxOutputDirectory.Text=  defaultOutputPath;
+            textboxOutputDirectory.Text = defaultOutputPath;
             //Try Catch to see if Output Directory Exists
             try
             {
@@ -855,7 +855,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             //MenuStrip Use Wait Cursor Disabled
             menuStrip1.UseWaitCursor = false;
             //Setup Tooltips for each button
-            ToolTip toolTipper= new ToolTip();
+            ToolTip toolTipper = new ToolTip();
             toolTipper.SetToolTip(checkboxOutputTxtFiles, "When checked, the program will output the selected recording(s) as .txt files inside of the output directory.");
             toolTipper.SetToolTip(radioRecording1, "When checked, the program will create an output for just recording 1.");
             toolTipper.SetToolTip(radioRecording2, "When checked, the program will create an output for just recording 2.");
@@ -1017,6 +1017,6 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         private void BtnClear_Click(object sender, EventArgs e)//Clear Textboxes in Form 
         {
             textboxParsedRecordingKEY.Text = "";
-        } 
+        }
     }
 }

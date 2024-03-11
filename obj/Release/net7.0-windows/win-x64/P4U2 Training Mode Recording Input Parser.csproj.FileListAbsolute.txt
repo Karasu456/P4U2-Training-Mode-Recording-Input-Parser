@@ -3,7 +3,6 @@ G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input P
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\P4U2 Training Mode Recording Input Parser.runtimeconfig.json
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\P4U2 Training Mode Recording Input Parser.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\P4U2 Training Mode Recording Input Parser.pdb
-G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Release\net7.0-windows\win-x64\P4U2 Training Mode Recording Input Parser.csproj.AssemblyReference.cache
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Release\net7.0-windows\win-x64\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Form1.resources
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Release\net7.0-windows\win-x64\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Form2.resources
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Release\net7.0-windows\win-x64\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Popup.resources
@@ -247,7 +246,6 @@ G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input P
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\hostfxr.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\hostpolicy.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\mscordaccore.dll
-G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\mscordaccore_amd64_amd64_7.0.122.56804.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\mscordbi.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\mscorrc.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\msquic.dll
@@ -478,3 +476,4 @@ G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input P
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\zh-Hant\WindowsBase.resources.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\zh-Hant\WindowsFormsIntegration.resources.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Release\net7.0-windows\win-x64\P4U2 Training Mode Recording Input Parser.csproj.CopyComplete
+G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Release\net7.0-windows\win-x64\mscordaccore_amd64_amd64_7.0.1223.47720.dll

@@ -3,7 +3,6 @@ G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input P
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.runtimeconfig.json
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.dll
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\bin\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.pdb
-G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.csproj.AssemblyReference.cache
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Form1.resources
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\P4U2_Training_Mode_Recording_Input_Parsing_Tool.Properties.Resources.resources
 G:\P4U Modding\P4U2 Recording to Trial Data\P4U2 Training Mode Recording Input Parser\obj\Debug\net7.0-windows\P4U2 Training Mode Recording Input Parser.csproj.GenerateResource.cache
