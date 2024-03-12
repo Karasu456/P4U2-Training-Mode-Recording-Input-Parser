@@ -29,28 +29,31 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            btnClear = new Button();
+            panel5 = new Panel();
+            radioOutputDirectionLeft = new RadioButton();
+            radioOutputDirectionRight = new RadioButton();
+            lblMode = new Label();
+            panel4 = new Panel();
+            radioInitialDirectionLeft = new RadioButton();
             lblDirection = new Label();
-            checkboxRecordingLeft = new CheckBox();
+            radioInitialDirectionRight = new RadioButton();
+            panel2 = new Panel();
+            radioRecording4 = new RadioButton();
+            radioRecording5 = new RadioButton();
+            radioRecording3 = new RadioButton();
+            radioRecording1 = new RadioButton();
+            radioRecording2 = new RadioButton();
+            radioRecordingAll = new RadioButton();
+            lblRecording = new Label();
+            btnClear = new Button();
             label3 = new Label();
             lblTitle = new Label();
-            checkboxRecordingRight = new CheckBox();
             btnParse = new Button();
-            radioRecordingAll = new RadioButton();
             lblOutputDirectory = new Label();
             lblSaveDirectory = new Label();
             textboxOutputDirectory = new TextBox();
             textboxSaveDirectory = new TextBox();
             checkboxOutputTxtFiles = new CheckBox();
-            radioRecording2 = new RadioButton();
-            checkboxOutputEKEY = new CheckBox();
-            checkboxOutputKEY = new CheckBox();
-            radioRecording1 = new RadioButton();
-            lblMode = new Label();
-            radioRecording3 = new RadioButton();
-            lblRecording = new Label();
-            radioRecording4 = new RadioButton();
-            radioRecording5 = new RadioButton();
             label5 = new Label();
             textboxParsedRecordingKEY = new TextBox();
             panel3 = new Panel();
@@ -63,6 +66,9 @@
             stripMenuAbout = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
             panel1.SuspendLayout();
+            panel5.SuspendLayout();
+            panel4.SuspendLayout();
+            panel2.SuspendLayout();
             panel3.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -71,72 +77,229 @@
             // 
             panel1.BackColor = SystemColors.Control;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(panel5);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnClear);
-            panel1.Controls.Add(lblDirection);
-            panel1.Controls.Add(checkboxRecordingLeft);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(lblTitle);
-            panel1.Controls.Add(checkboxRecordingRight);
             panel1.Controls.Add(btnParse);
-            panel1.Controls.Add(radioRecordingAll);
             panel1.Controls.Add(lblOutputDirectory);
             panel1.Controls.Add(lblSaveDirectory);
             panel1.Controls.Add(textboxOutputDirectory);
             panel1.Controls.Add(textboxSaveDirectory);
             panel1.Controls.Add(checkboxOutputTxtFiles);
-            panel1.Controls.Add(radioRecording2);
-            panel1.Controls.Add(checkboxOutputEKEY);
-            panel1.Controls.Add(checkboxOutputKEY);
-            panel1.Controls.Add(radioRecording1);
-            panel1.Controls.Add(lblMode);
-            panel1.Controls.Add(radioRecording3);
-            panel1.Controls.Add(lblRecording);
-            panel1.Controls.Add(radioRecording4);
-            panel1.Controls.Add(radioRecording5);
             panel1.Dock = DockStyle.Left;
             panel1.ForeColor = SystemColors.ControlText;
             panel1.Location = new Point(0, 24);
             panel1.Name = "panel1";
-            panel1.Size = new Size(242, 504);
+            panel1.Size = new Size(242, 513);
             panel1.TabIndex = 1;
             // 
-            // btnClear
+            // panel5
             // 
-            btnClear.BackColor = SystemColors.Control;
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.ForeColor = SystemColors.ControlText;
-            btnClear.Location = new Point(132, 469);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(104, 27);
-            btnClear.TabIndex = 26;
-            btnClear.TabStop = false;
-            btnClear.Text = "Clear Data";
-            btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += BtnClear_Click;
+            panel5.Controls.Add(radioOutputDirectionLeft);
+            panel5.Controls.Add(radioOutputDirectionRight);
+            panel5.Controls.Add(lblMode);
+            panel5.Location = new Point(3, 312);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(227, 68);
+            panel5.TabIndex = 28;
+            // 
+            // radioOutputDirectionLeft
+            // 
+            radioOutputDirectionLeft.AutoSize = true;
+            radioOutputDirectionLeft.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            radioOutputDirectionLeft.Location = new Point(7, 45);
+            radioOutputDirectionLeft.Name = "radioOutputDirectionLeft";
+            radioOutputDirectionLeft.Size = new Size(107, 19);
+            radioOutputDirectionLeft.TabIndex = 15;
+            radioOutputDirectionLeft.Text = "Facing Left (<-)";
+            radioOutputDirectionLeft.UseVisualStyleBackColor = true;
+            // 
+            // radioOutputDirectionRight
+            // 
+            radioOutputDirectionRight.AutoSize = true;
+            radioOutputDirectionRight.Checked = true;
+            radioOutputDirectionRight.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            radioOutputDirectionRight.Location = new Point(7, 21);
+            radioOutputDirectionRight.Name = "radioOutputDirectionRight";
+            radioOutputDirectionRight.Size = new Size(115, 19);
+            radioOutputDirectionRight.TabIndex = 14;
+            radioOutputDirectionRight.TabStop = true;
+            radioOutputDirectionRight.Text = "Facing Right (->)";
+            radioOutputDirectionRight.UseVisualStyleBackColor = true;
+            // 
+            // lblMode
+            // 
+            lblMode.AutoSize = true;
+            lblMode.BackColor = SystemColors.Control;
+            lblMode.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblMode.ForeColor = SystemColors.ControlText;
+            lblMode.Location = new Point(0, 3);
+            lblMode.Name = "lblMode";
+            lblMode.Size = new Size(143, 15);
+            lblMode.TabIndex = 10;
+            lblMode.Text = "Desired Output Direction:";
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(radioInitialDirectionLeft);
+            panel4.Controls.Add(lblDirection);
+            panel4.Controls.Add(radioInitialDirectionRight);
+            panel4.Location = new Point(3, 242);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(227, 73);
+            panel4.TabIndex = 27;
+            // 
+            // radioInitialDirectionLeft
+            // 
+            radioInitialDirectionLeft.AutoSize = true;
+            radioInitialDirectionLeft.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            radioInitialDirectionLeft.Location = new Point(7, 45);
+            radioInitialDirectionLeft.Name = "radioInitialDirectionLeft";
+            radioInitialDirectionLeft.Size = new Size(107, 19);
+            radioInitialDirectionLeft.TabIndex = 17;
+            radioInitialDirectionLeft.Text = "Facing Left (<-)";
+            radioInitialDirectionLeft.UseVisualStyleBackColor = true;
             // 
             // lblDirection
             // 
             lblDirection.AutoSize = true;
             lblDirection.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lblDirection.ForeColor = SystemColors.ControlText;
-            lblDirection.Location = new Point(3, 244);
+            lblDirection.Location = new Point(0, 5);
             lblDirection.Name = "lblDirection";
-            lblDirection.Size = new Size(116, 15);
+            lblDirection.Size = new Size(149, 15);
             lblDirection.TabIndex = 25;
-            lblDirection.Text = "Recording Direction:";
+            lblDirection.Text = "Initial Recording Direction:";
             // 
-            // checkboxRecordingLeft
+            // radioInitialDirectionRight
             // 
-            checkboxRecordingLeft.AutoSize = true;
-            checkboxRecordingLeft.BackColor = SystemColors.Control;
-            checkboxRecordingLeft.ForeColor = SystemColors.ControlText;
-            checkboxRecordingLeft.Location = new Point(10, 262);
-            checkboxRecordingLeft.Name = "checkboxRecordingLeft";
-            checkboxRecordingLeft.Size = new Size(89, 19);
-            checkboxRecordingLeft.TabIndex = 24;
-            checkboxRecordingLeft.TabStop = false;
-            checkboxRecordingLeft.Text = "Facing Left?";
-            checkboxRecordingLeft.UseVisualStyleBackColor = false;
+            radioInitialDirectionRight.AutoSize = true;
+            radioInitialDirectionRight.Checked = true;
+            radioInitialDirectionRight.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            radioInitialDirectionRight.Location = new Point(7, 21);
+            radioInitialDirectionRight.Name = "radioInitialDirectionRight";
+            radioInitialDirectionRight.Size = new Size(115, 19);
+            radioInitialDirectionRight.TabIndex = 16;
+            radioInitialDirectionRight.TabStop = true;
+            radioInitialDirectionRight.Text = "Facing Right (->)";
+            radioInitialDirectionRight.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(radioRecording4);
+            panel2.Controls.Add(radioRecording5);
+            panel2.Controls.Add(radioRecording3);
+            panel2.Controls.Add(radioRecording1);
+            panel2.Controls.Add(radioRecording2);
+            panel2.Controls.Add(radioRecordingAll);
+            panel2.Controls.Add(lblRecording);
+            panel2.Location = new Point(3, 144);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(227, 100);
+            panel2.TabIndex = 22;
+            // 
+            // radioRecording4
+            // 
+            radioRecording4.AutoSize = true;
+            radioRecording4.BackColor = SystemColors.Control;
+            radioRecording4.ForeColor = SystemColors.ControlText;
+            radioRecording4.Location = new Point(120, 23);
+            radioRecording4.Name = "radioRecording4";
+            radioRecording4.Size = new Size(88, 19);
+            radioRecording4.TabIndex = 8;
+            radioRecording4.Text = "Recording 4";
+            radioRecording4.UseVisualStyleBackColor = false;
+            // 
+            // radioRecording5
+            // 
+            radioRecording5.AutoSize = true;
+            radioRecording5.BackColor = SystemColors.Control;
+            radioRecording5.ForeColor = SystemColors.ControlText;
+            radioRecording5.Location = new Point(120, 48);
+            radioRecording5.Name = "radioRecording5";
+            radioRecording5.Size = new Size(88, 19);
+            radioRecording5.TabIndex = 9;
+            radioRecording5.Text = "Recording 5";
+            radioRecording5.UseVisualStyleBackColor = false;
+            // 
+            // radioRecording3
+            // 
+            radioRecording3.AutoSize = true;
+            radioRecording3.BackColor = SystemColors.Control;
+            radioRecording3.ForeColor = SystemColors.ControlText;
+            radioRecording3.Location = new Point(7, 73);
+            radioRecording3.Name = "radioRecording3";
+            radioRecording3.Size = new Size(88, 19);
+            radioRecording3.TabIndex = 7;
+            radioRecording3.Text = "Recording 3";
+            radioRecording3.UseVisualStyleBackColor = false;
+            // 
+            // radioRecording1
+            // 
+            radioRecording1.AutoSize = true;
+            radioRecording1.BackColor = SystemColors.Control;
+            radioRecording1.ForeColor = SystemColors.ControlText;
+            radioRecording1.Location = new Point(7, 23);
+            radioRecording1.Name = "radioRecording1";
+            radioRecording1.Size = new Size(88, 19);
+            radioRecording1.TabIndex = 5;
+            radioRecording1.Text = "Recording 1";
+            radioRecording1.UseVisualStyleBackColor = false;
+            // 
+            // radioRecording2
+            // 
+            radioRecording2.AutoSize = true;
+            radioRecording2.BackColor = SystemColors.Control;
+            radioRecording2.ForeColor = SystemColors.ControlText;
+            radioRecording2.Location = new Point(7, 48);
+            radioRecording2.Name = "radioRecording2";
+            radioRecording2.Size = new Size(88, 19);
+            radioRecording2.TabIndex = 6;
+            radioRecording2.Text = "Recording 2";
+            radioRecording2.UseVisualStyleBackColor = false;
+            // 
+            // radioRecordingAll
+            // 
+            radioRecordingAll.AutoSize = true;
+            radioRecordingAll.BackColor = SystemColors.Control;
+            radioRecordingAll.Checked = true;
+            radioRecordingAll.ForeColor = SystemColors.ControlText;
+            radioRecordingAll.Location = new Point(120, 73);
+            radioRecordingAll.Name = "radioRecordingAll";
+            radioRecordingAll.Size = new Size(39, 19);
+            radioRecordingAll.TabIndex = 17;
+            radioRecordingAll.TabStop = true;
+            radioRecordingAll.Text = "All";
+            radioRecordingAll.UseVisualStyleBackColor = false;
+            // 
+            // lblRecording
+            // 
+            lblRecording.AutoSize = true;
+            lblRecording.BackColor = SystemColors.Control;
+            lblRecording.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblRecording.ForeColor = SystemColors.ControlText;
+            lblRecording.Location = new Point(0, 5);
+            lblRecording.Name = "lblRecording";
+            lblRecording.Size = new Size(144, 15);
+            lblRecording.TabIndex = 11;
+            lblRecording.Text = "Select Recording to Parse:";
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = SystemColors.Control;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.ForeColor = SystemColors.ControlText;
+            btnClear.Location = new Point(123, 478);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(107, 27);
+            btnClear.TabIndex = 26;
+            btnClear.TabStop = false;
+            btnClear.Text = "Clear Data";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += BtnClear_Click;
             // 
             // label3
             // 
@@ -162,48 +325,19 @@
             lblTitle.Text = "P4U2 Training Mode \r\nRecording Input Parser";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // checkboxRecordingRight
-            // 
-            checkboxRecordingRight.AutoSize = true;
-            checkboxRecordingRight.BackColor = SystemColors.Control;
-            checkboxRecordingRight.Checked = true;
-            checkboxRecordingRight.CheckState = CheckState.Checked;
-            checkboxRecordingRight.ForeColor = SystemColors.ControlText;
-            checkboxRecordingRight.Location = new Point(10, 287);
-            checkboxRecordingRight.Name = "checkboxRecordingRight";
-            checkboxRecordingRight.Size = new Size(97, 19);
-            checkboxRecordingRight.TabIndex = 23;
-            checkboxRecordingRight.TabStop = false;
-            checkboxRecordingRight.Text = "Facing Right?";
-            checkboxRecordingRight.UseVisualStyleBackColor = false;
-            // 
             // btnParse
             // 
             btnParse.BackColor = SystemColors.Control;
             btnParse.FlatStyle = FlatStyle.Flat;
             btnParse.ForeColor = SystemColors.ControlText;
-            btnParse.Location = new Point(3, 469);
+            btnParse.Location = new Point(10, 478);
             btnParse.Name = "btnParse";
-            btnParse.Size = new Size(123, 27);
+            btnParse.Size = new Size(107, 27);
             btnParse.TabIndex = 18;
             btnParse.TabStop = false;
             btnParse.Text = "Parse Input Data";
             btnParse.UseVisualStyleBackColor = false;
             btnParse.Click += BtnParse_Click;
-            // 
-            // radioRecordingAll
-            // 
-            radioRecordingAll.AutoSize = true;
-            radioRecordingAll.BackColor = SystemColors.Control;
-            radioRecordingAll.Checked = true;
-            radioRecordingAll.ForeColor = SystemColors.ControlText;
-            radioRecordingAll.Location = new Point(130, 222);
-            radioRecordingAll.Name = "radioRecordingAll";
-            radioRecordingAll.Size = new Size(39, 19);
-            radioRecordingAll.TabIndex = 17;
-            radioRecordingAll.TabStop = true;
-            radioRecordingAll.Text = "All";
-            radioRecordingAll.UseVisualStyleBackColor = false;
             // 
             // lblOutputDirectory
             // 
@@ -211,7 +345,7 @@
             lblOutputDirectory.BackColor = SystemColors.Control;
             lblOutputDirectory.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lblOutputDirectory.ForeColor = SystemColors.ControlText;
-            lblOutputDirectory.Location = new Point(3, 374);
+            lblOutputDirectory.Location = new Point(3, 383);
             lblOutputDirectory.Name = "lblOutputDirectory";
             lblOutputDirectory.Size = new Size(100, 15);
             lblOutputDirectory.TabIndex = 16;
@@ -223,7 +357,7 @@
             lblSaveDirectory.BackColor = SystemColors.Control;
             lblSaveDirectory.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lblSaveDirectory.ForeColor = SystemColors.ControlText;
-            lblSaveDirectory.Location = new Point(3, 86);
+            lblSaveDirectory.Location = new Point(3, 74);
             lblSaveDirectory.Name = "lblSaveDirectory";
             lblSaveDirectory.Size = new Size(87, 15);
             lblSaveDirectory.TabIndex = 6;
@@ -234,11 +368,11 @@
             textboxOutputDirectory.BackColor = SystemColors.Control;
             textboxOutputDirectory.BorderStyle = BorderStyle.None;
             textboxOutputDirectory.ForeColor = SystemColors.ControlText;
-            textboxOutputDirectory.Location = new Point(3, 392);
+            textboxOutputDirectory.Location = new Point(10, 401);
             textboxOutputDirectory.Multiline = true;
             textboxOutputDirectory.Name = "textboxOutputDirectory";
             textboxOutputDirectory.ReadOnly = true;
-            textboxOutputDirectory.Size = new Size(236, 46);
+            textboxOutputDirectory.Size = new Size(220, 46);
             textboxOutputDirectory.TabIndex = 15;
             textboxOutputDirectory.TabStop = false;
             // 
@@ -248,11 +382,11 @@
             textboxSaveDirectory.BorderStyle = BorderStyle.None;
             textboxSaveDirectory.CausesValidation = false;
             textboxSaveDirectory.ForeColor = SystemColors.ControlText;
-            textboxSaveDirectory.Location = new Point(3, 104);
+            textboxSaveDirectory.Location = new Point(10, 92);
             textboxSaveDirectory.Multiline = true;
             textboxSaveDirectory.Name = "textboxSaveDirectory";
             textboxSaveDirectory.ReadOnly = true;
-            textboxSaveDirectory.Size = new Size(236, 46);
+            textboxSaveDirectory.Size = new Size(220, 46);
             textboxSaveDirectory.TabIndex = 5;
             textboxSaveDirectory.TabStop = false;
             // 
@@ -261,125 +395,13 @@
             checkboxOutputTxtFiles.AutoSize = true;
             checkboxOutputTxtFiles.BackColor = SystemColors.Control;
             checkboxOutputTxtFiles.ForeColor = SystemColors.ControlText;
-            checkboxOutputTxtFiles.Location = new Point(3, 444);
+            checkboxOutputTxtFiles.Location = new Point(10, 453);
             checkboxOutputTxtFiles.Name = "checkboxOutputTxtFiles";
             checkboxOutputTxtFiles.Size = new Size(136, 19);
             checkboxOutputTxtFiles.TabIndex = 14;
             checkboxOutputTxtFiles.TabStop = false;
             checkboxOutputTxtFiles.Text = "Generate Text File(s)?";
             checkboxOutputTxtFiles.UseVisualStyleBackColor = false;
-            // 
-            // radioRecording2
-            // 
-            radioRecording2.AutoSize = true;
-            radioRecording2.BackColor = SystemColors.Control;
-            radioRecording2.ForeColor = SystemColors.ControlText;
-            radioRecording2.Location = new Point(12, 197);
-            radioRecording2.Name = "radioRecording2";
-            radioRecording2.Size = new Size(88, 19);
-            radioRecording2.TabIndex = 6;
-            radioRecording2.Text = "Recording 2";
-            radioRecording2.UseVisualStyleBackColor = false;
-            // 
-            // checkboxOutputEKEY
-            // 
-            checkboxOutputEKEY.AutoSize = true;
-            checkboxOutputEKEY.BackColor = SystemColors.Control;
-            checkboxOutputEKEY.ForeColor = SystemColors.ControlText;
-            checkboxOutputEKEY.Location = new Point(12, 327);
-            checkboxOutputEKEY.Name = "checkboxOutputEKEY";
-            checkboxOutputEKEY.Size = new Size(139, 19);
-            checkboxOutputEKEY.TabIndex = 13;
-            checkboxOutputEKEY.TabStop = false;
-            checkboxOutputEKEY.Text = "Enemy Dummy Input";
-            checkboxOutputEKEY.UseVisualStyleBackColor = false;
-            // 
-            // checkboxOutputKEY
-            // 
-            checkboxOutputKEY.AutoSize = true;
-            checkboxOutputKEY.BackColor = SystemColors.Control;
-            checkboxOutputKEY.Checked = true;
-            checkboxOutputKEY.CheckState = CheckState.Checked;
-            checkboxOutputKEY.ForeColor = SystemColors.ControlText;
-            checkboxOutputKEY.Location = new Point(12, 352);
-            checkboxOutputKEY.Name = "checkboxOutputKEY";
-            checkboxOutputKEY.Size = new Size(136, 19);
-            checkboxOutputKEY.TabIndex = 12;
-            checkboxOutputKEY.TabStop = false;
-            checkboxOutputKEY.Text = "Demonstration Input";
-            checkboxOutputKEY.UseVisualStyleBackColor = false;
-            // 
-            // radioRecording1
-            // 
-            radioRecording1.AutoSize = true;
-            radioRecording1.BackColor = SystemColors.Control;
-            radioRecording1.ForeColor = SystemColors.ControlText;
-            radioRecording1.Location = new Point(12, 172);
-            radioRecording1.Name = "radioRecording1";
-            radioRecording1.Size = new Size(88, 19);
-            radioRecording1.TabIndex = 5;
-            radioRecording1.Text = "Recording 1";
-            radioRecording1.UseVisualStyleBackColor = false;
-            // 
-            // lblMode
-            // 
-            lblMode.AutoSize = true;
-            lblMode.BackColor = SystemColors.Control;
-            lblMode.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            lblMode.ForeColor = SystemColors.ControlText;
-            lblMode.Location = new Point(3, 309);
-            lblMode.Name = "lblMode";
-            lblMode.Size = new Size(82, 15);
-            lblMode.TabIndex = 10;
-            lblMode.Text = "Output Mode:";
-            // 
-            // radioRecording3
-            // 
-            radioRecording3.AutoSize = true;
-            radioRecording3.BackColor = SystemColors.Control;
-            radioRecording3.ForeColor = SystemColors.ControlText;
-            radioRecording3.Location = new Point(12, 222);
-            radioRecording3.Name = "radioRecording3";
-            radioRecording3.Size = new Size(88, 19);
-            radioRecording3.TabIndex = 7;
-            radioRecording3.Text = "Recording 3";
-            radioRecording3.UseVisualStyleBackColor = false;
-            // 
-            // lblRecording
-            // 
-            lblRecording.AutoSize = true;
-            lblRecording.BackColor = SystemColors.Control;
-            lblRecording.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            lblRecording.ForeColor = SystemColors.ControlText;
-            lblRecording.Location = new Point(3, 153);
-            lblRecording.Name = "lblRecording";
-            lblRecording.Size = new Size(144, 15);
-            lblRecording.TabIndex = 11;
-            lblRecording.Text = "Select Recording to Parse:";
-            // 
-            // radioRecording4
-            // 
-            radioRecording4.AutoSize = true;
-            radioRecording4.BackColor = SystemColors.Control;
-            radioRecording4.ForeColor = SystemColors.ControlText;
-            radioRecording4.Location = new Point(130, 172);
-            radioRecording4.Name = "radioRecording4";
-            radioRecording4.Size = new Size(88, 19);
-            radioRecording4.TabIndex = 8;
-            radioRecording4.Text = "Recording 4";
-            radioRecording4.UseVisualStyleBackColor = false;
-            // 
-            // radioRecording5
-            // 
-            radioRecording5.AutoSize = true;
-            radioRecording5.BackColor = SystemColors.Control;
-            radioRecording5.ForeColor = SystemColors.ControlText;
-            radioRecording5.Location = new Point(130, 197);
-            radioRecording5.Name = "radioRecording5";
-            radioRecording5.Size = new Size(88, 19);
-            radioRecording5.TabIndex = 9;
-            radioRecording5.Text = "Recording 5";
-            radioRecording5.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -406,7 +428,7 @@
             textboxParsedRecordingKEY.Name = "textboxParsedRecordingKEY";
             textboxParsedRecordingKEY.ReadOnly = true;
             textboxParsedRecordingKEY.ScrollBars = ScrollBars.Vertical;
-            textboxParsedRecordingKEY.Size = new Size(231, 481);
+            textboxParsedRecordingKEY.Size = new Size(231, 490);
             textboxParsedRecordingKEY.TabIndex = 21;
             textboxParsedRecordingKEY.TabStop = false;
             // 
@@ -418,7 +440,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(242, 24);
             panel3.Name = "panel3";
-            panel3.Size = new Size(235, 504);
+            panel3.Size = new Size(235, 513);
             panel3.TabIndex = 3;
             // 
             // stripMenuFile
@@ -491,7 +513,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(477, 528);
+            ClientSize = new Size(477, 537);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
@@ -504,6 +526,12 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             menuStrip1.ResumeLayout(false);
@@ -523,8 +551,6 @@
         private RadioButton radioRecording5;
         private Label lblMode;
         private Label lblRecording;
-        private CheckBox checkboxOutputKEY;
-        private CheckBox checkboxOutputEKEY;
         private Button btnParse;
         private RadioButton radioRecordingAll;
         private Label lblOutputDirectory;
@@ -536,8 +562,6 @@
         private Label label3;
         private Panel panel3;
         private Label lblDirection;
-        private CheckBox checkboxRecordingLeft;
-        private CheckBox checkboxRecordingRight;
         private ToolStripMenuItem stripMenuFile;
         private ToolStripMenuItem stripMenuOpen;
         private ToolStripMenuItem stripMenuClose;
@@ -547,5 +571,12 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem stripMenuSetOutput;
         private Button btnClear;
+        private Panel panel2;
+        private Panel panel5;
+        private Panel panel4;
+        private RadioButton radioOutputDirectionLeft;
+        private RadioButton radioOutputDirectionRight;
+        private RadioButton radioInitialDirectionLeft;
+        private RadioButton radioInitialDirectionRight;
     }
 }
