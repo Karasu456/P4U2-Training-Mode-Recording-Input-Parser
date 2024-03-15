@@ -505,24 +505,12 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 string[] splitKey = key.Split('\t');
                 string[] pendingKey;
 
-                //Handle "Empty" Frame - Frames where there is no button input & the frame is held for 1 count
-                if (splitKey[1].Equals("-") && splitKey[2].Equals("1") && cleanInputList.Count > 0)
+                if(cleanInputList.Count > 0)
                 {
                     pendingKey = cleanInputList.Last().Split('\t');
-                    pendingFrameCount = int.Parse(pendingKey[2]) + 1;
-                    pendingKey[2] = pendingFrameCount.ToString();
-                    cleanInputList.RemoveAt(cleanInputList.Count - 1);
-                    
-                    string newKey = string.Join("\t", pendingKey);
-                    cleanInputList.Add(newKey);
-                    continue;
-                }
-                //Handle "Single Frame" button presses
-                if (splitKey[1].Contains("A") || splitKey[1].Contains("B") || splitKey[1].Contains("C") || splitKey[1].Contains("D") && cleanInputList.Count > 0)
-                {
-                    if (splitKey[2].Equals("1"))
-                    {
-                        pendingKey = cleanInputList.Last().Split('\t');
+                    //Handle "Empty" Frame - Frames where there is no button input & the frame is held for 1 count
+                    if (splitKey[1].Equals("-") && splitKey[2].Equals("1") && cleanInputList.Count > 0)
+                    {                        
                         pendingFrameCount = int.Parse(pendingKey[2]) + 1;
                         pendingKey[2] = pendingFrameCount.ToString();
                         cleanInputList.RemoveAt(cleanInputList.Count - 1);
@@ -531,12 +519,21 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                         cleanInputList.Add(newKey);
                         continue;
                     }
-                }
-                //Combine Same Input frames - "5 - 20" && "5 - 34"
-                if (cleanInputList.Count > 0)
-                {
-                    pendingKey = cleanInputList.Last().Split('\t');
+                    //Handle "Single Frame" button presses
+                    if (splitKey[1].Contains("A") || splitKey[1].Contains("B") || splitKey[1].Contains("C") || splitKey[1].Contains("D"))
+                    {
+                        if (splitKey[2].Equals("1"))
+                        {                            
+                            pendingFrameCount = int.Parse(pendingKey[2]) + 1;
+                            pendingKey[2] = pendingFrameCount.ToString();
+                            cleanInputList.RemoveAt(cleanInputList.Count - 1);
 
+                            string newKey = string.Join("\t", pendingKey);
+                            cleanInputList.Add(newKey);
+                            continue;
+                        }
+                    }
+                    //Combine Same Input frames - "5 - 20" && "5 - 34"                   
                     if (splitKey[0].Equals(pendingKey[0]) && splitKey[1].Equals(pendingKey[1]))
                     {
                         pendingFrameCount = int.Parse(splitKey[2]) + int.Parse(pendingKey[2]);
@@ -546,8 +543,9 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                         string newKey = string.Join("\t", pendingKey);
                         cleanInputList.Add(newKey);
                         continue;
-                    }                    
-                }
+                    }
+
+                }                
                 
                 cleanInputList.Add(key);
             }
