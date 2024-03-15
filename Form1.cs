@@ -505,8 +505,13 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 string[] splitKey = key.Split('\t');
                 string[] pendingKey;
 
-                if(cleanInputList.Count > 0)
+                if (splitKey[2].Equals("1") && cleanInputList.Count == 0)
                 {
+                    continue;
+                }
+
+                if(cleanInputList.Count > 0)
+                {                    
                     pendingKey = cleanInputList.Last().Split('\t');
                     //Handle "Empty" Frame - Frames where there is no button input & the frame is held for 1 count
                     if (splitKey[1].Equals("-") && splitKey[2].Equals("1") && cleanInputList.Count > 0)
