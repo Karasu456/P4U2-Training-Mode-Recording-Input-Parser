@@ -57,6 +57,9 @@
             label5 = new Label();
             textboxParsedRecordingKEY = new TextBox();
             panel3 = new Panel();
+            menuStrip2 = new MenuStrip();
+            rawInputDataToolStripMenuItem = new ToolStripMenuItem();
+            cleanInputDataToolStripMenuItem = new ToolStripMenuItem();
             stripMenuFile = new ToolStripMenuItem();
             stripMenuOpen = new ToolStripMenuItem();
             stripMenuSetOutput = new ToolStripMenuItem();
@@ -70,6 +73,7 @@
             panel4.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            menuStrip2.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -205,10 +209,11 @@
             // 
             radioRecording4.AutoSize = true;
             radioRecording4.BackColor = SystemColors.Control;
+            radioRecording4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             radioRecording4.ForeColor = SystemColors.ControlText;
             radioRecording4.Location = new Point(120, 23);
             radioRecording4.Name = "radioRecording4";
-            radioRecording4.Size = new Size(88, 19);
+            radioRecording4.Size = new Size(89, 19);
             radioRecording4.TabIndex = 8;
             radioRecording4.Text = "Recording 4";
             radioRecording4.UseVisualStyleBackColor = false;
@@ -217,10 +222,11 @@
             // 
             radioRecording5.AutoSize = true;
             radioRecording5.BackColor = SystemColors.Control;
+            radioRecording5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             radioRecording5.ForeColor = SystemColors.ControlText;
             radioRecording5.Location = new Point(120, 48);
             radioRecording5.Name = "radioRecording5";
-            radioRecording5.Size = new Size(88, 19);
+            radioRecording5.Size = new Size(89, 19);
             radioRecording5.TabIndex = 9;
             radioRecording5.Text = "Recording 5";
             radioRecording5.UseVisualStyleBackColor = false;
@@ -229,10 +235,11 @@
             // 
             radioRecording3.AutoSize = true;
             radioRecording3.BackColor = SystemColors.Control;
+            radioRecording3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             radioRecording3.ForeColor = SystemColors.ControlText;
             radioRecording3.Location = new Point(7, 73);
             radioRecording3.Name = "radioRecording3";
-            radioRecording3.Size = new Size(88, 19);
+            radioRecording3.Size = new Size(89, 19);
             radioRecording3.TabIndex = 7;
             radioRecording3.Text = "Recording 3";
             radioRecording3.UseVisualStyleBackColor = false;
@@ -241,10 +248,11 @@
             // 
             radioRecording1.AutoSize = true;
             radioRecording1.BackColor = SystemColors.Control;
+            radioRecording1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             radioRecording1.ForeColor = SystemColors.ControlText;
             radioRecording1.Location = new Point(7, 23);
             radioRecording1.Name = "radioRecording1";
-            radioRecording1.Size = new Size(88, 19);
+            radioRecording1.Size = new Size(87, 19);
             radioRecording1.TabIndex = 5;
             radioRecording1.Text = "Recording 1";
             radioRecording1.UseVisualStyleBackColor = false;
@@ -253,10 +261,11 @@
             // 
             radioRecording2.AutoSize = true;
             radioRecording2.BackColor = SystemColors.Control;
+            radioRecording2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             radioRecording2.ForeColor = SystemColors.ControlText;
             radioRecording2.Location = new Point(7, 48);
             radioRecording2.Name = "radioRecording2";
-            radioRecording2.Size = new Size(88, 19);
+            radioRecording2.Size = new Size(89, 19);
             radioRecording2.TabIndex = 6;
             radioRecording2.Text = "Recording 2";
             radioRecording2.UseVisualStyleBackColor = false;
@@ -266,6 +275,7 @@
             radioRecordingAll.AutoSize = true;
             radioRecordingAll.BackColor = SystemColors.Control;
             radioRecordingAll.Checked = true;
+            radioRecordingAll.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             radioRecordingAll.ForeColor = SystemColors.ControlText;
             radioRecordingAll.Location = new Point(120, 73);
             radioRecordingAll.Name = "radioRecordingAll";
@@ -394,10 +404,11 @@
             // 
             checkboxOutputTxtFiles.AutoSize = true;
             checkboxOutputTxtFiles.BackColor = SystemColors.Control;
+            checkboxOutputTxtFiles.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             checkboxOutputTxtFiles.ForeColor = SystemColors.ControlText;
             checkboxOutputTxtFiles.Location = new Point(10, 453);
             checkboxOutputTxtFiles.Name = "checkboxOutputTxtFiles";
-            checkboxOutputTxtFiles.Size = new Size(136, 19);
+            checkboxOutputTxtFiles.Size = new Size(137, 19);
             checkboxOutputTxtFiles.TabIndex = 14;
             checkboxOutputTxtFiles.TabStop = false;
             checkboxOutputTxtFiles.Text = "Generate Text File(s)?";
@@ -421,14 +432,14 @@
             // 
             textboxParsedRecordingKEY.BackColor = SystemColors.Control;
             textboxParsedRecordingKEY.BorderStyle = BorderStyle.FixedSingle;
-            textboxParsedRecordingKEY.Dock = DockStyle.Fill;
+            textboxParsedRecordingKEY.Dock = DockStyle.Bottom;
             textboxParsedRecordingKEY.ForeColor = SystemColors.ControlText;
-            textboxParsedRecordingKEY.Location = new Point(0, 19);
+            textboxParsedRecordingKEY.Location = new Point(0, 43);
             textboxParsedRecordingKEY.Multiline = true;
             textboxParsedRecordingKEY.Name = "textboxParsedRecordingKEY";
             textboxParsedRecordingKEY.ReadOnly = true;
             textboxParsedRecordingKEY.ScrollBars = ScrollBars.Vertical;
-            textboxParsedRecordingKEY.Size = new Size(231, 490);
+            textboxParsedRecordingKEY.Size = new Size(231, 466);
             textboxParsedRecordingKEY.TabIndex = 21;
             textboxParsedRecordingKEY.TabStop = false;
             // 
@@ -437,11 +448,44 @@
             panel3.BorderStyle = BorderStyle.Fixed3D;
             panel3.Controls.Add(textboxParsedRecordingKEY);
             panel3.Controls.Add(label5);
+            panel3.Controls.Add(menuStrip2);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(242, 24);
             panel3.Name = "panel3";
             panel3.Size = new Size(235, 513);
             panel3.TabIndex = 3;
+            // 
+            // menuStrip2
+            // 
+            menuStrip2.Dock = DockStyle.None;
+            menuStrip2.Items.AddRange(new ToolStripItem[] { rawInputDataToolStripMenuItem, cleanInputDataToolStripMenuItem });
+            menuStrip2.Location = new Point(1, 19);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.RenderMode = ToolStripRenderMode.System;
+            menuStrip2.Size = new Size(350, 24);
+            menuStrip2.TabIndex = 22;
+            menuStrip2.Text = "menuStrip2";
+            menuStrip2.ItemClicked += menuStrip2_ItemClicked;
+            // 
+            // rawInputDataToolStripMenuItem
+            // 
+            rawInputDataToolStripMenuItem.Checked = true;
+            rawInputDataToolStripMenuItem.CheckOnClick = true;
+            rawInputDataToolStripMenuItem.CheckState = CheckState.Checked;
+            rawInputDataToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            rawInputDataToolStripMenuItem.Name = "rawInputDataToolStripMenuItem";
+            rawInputDataToolStripMenuItem.Size = new Size(101, 20);
+            rawInputDataToolStripMenuItem.Text = "Raw Input Data";
+            rawInputDataToolStripMenuItem.ToolTipText = "Display's the raw input data without any input cleanup.";
+            // 
+            // cleanInputDataToolStripMenuItem
+            // 
+            cleanInputDataToolStripMenuItem.CheckOnClick = true;
+            cleanInputDataToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cleanInputDataToolStripMenuItem.Name = "cleanInputDataToolStripMenuItem";
+            cleanInputDataToolStripMenuItem.Size = new Size(121, 20);
+            cleanInputDataToolStripMenuItem.Text = "Cleaned Input Data";
+            cleanInputDataToolStripMenuItem.ToolTipText = "Displays the cleaned up input data.";
             // 
             // stripMenuFile
             // 
@@ -534,6 +578,8 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -578,5 +624,8 @@
         private RadioButton radioOutputDirectionRight;
         private RadioButton radioInitialDirectionLeft;
         private RadioButton radioInitialDirectionRight;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem rawInputDataToolStripMenuItem;
+        private ToolStripMenuItem cleanInputDataToolStripMenuItem;
     }
 }

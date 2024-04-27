@@ -19,102 +19,6 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         {
             InitializeComponent();
         }
-        /*private void NoDirectionAndNoOuputSelected()//Returns Form if No Direction and Output are selected 
-        {
-            if (!(checkboxRecordingLeft.Checked) && !(checkboxRecordingRight.Checked))
-            {
-                if (!(checkboxOutputEKEY.Checked) && !(checkboxOutputKEY.Checked))
-                {
-                    Popup popup = new Popup();
-                    popup.StartPosition = FormStartPosition.CenterParent;
-                    popup.richTextBox1.Text = "Please select 1 Recording Direction and 1 Output Mode before pressing Parse Input Data.";
-                    DialogResult dialogresult = popup.ShowDialog();
-                    if (dialogresult == DialogResult.OK)
-                    {
-                        Console.WriteLine("Please select 1 Recording Direction and 1 Output Mode before pressing Parse Input Data.");
-                    }
-                    popup.Dispose();
-                    failedInputCheck = true;
-                    return;
-                }
-            }
-        }
-        private void DirectionPresentAndNoOutputSelected()//Returns Form if No Direction and Output are selected 
-        {
-            if ((checkboxRecordingLeft.Checked) || (checkboxRecordingRight.Checked))
-            {
-                if (!(checkboxOutputEKEY.Checked) && !(checkboxOutputKEY.Checked))
-                {
-                    Popup popup = new Popup();
-                    popup.StartPosition = FormStartPosition.CenterParent;
-                    popup.richTextBox1.Text = "Please select 1 Output Mode before pressing Parse Input Data.";
-                    DialogResult dialogresult = popup.ShowDialog();
-                    if (dialogresult == DialogResult.OK)
-                    {
-                        Console.WriteLine("Please select 1 Output Mode before pressing Parse Input Data.");
-                    }
-                    popup.Dispose();
-                    failedInputCheck = true;
-                    return;
-                }
-            }
-        }
-        private void OutputPresentAndMultipleDirectionsPresent()//Returns Form if No Direction and Output are selected 
-        {
-            if ((checkboxOutputEKEY.Checked) || (checkboxOutputKEY.Checked))
-            {
-                if (!(checkboxRecordingLeft.Checked) && !(checkboxRecordingRight.Checked))
-                {
-                    Popup popup = new Popup();
-                    popup.StartPosition = FormStartPosition.CenterParent;
-                    popup.richTextBox1.Text = "Please select 1 Recording Direction before pressing Parse Input Data.";
-                    DialogResult dialogresult = popup.ShowDialog();
-                    if (dialogresult == DialogResult.OK)
-                    {
-                        Console.WriteLine("Please select 1 Recording Direction before pressing Parse Input Data.");
-                    }
-                    popup.Dispose();
-                    failedInputCheck = true;
-                    return;
-                }
-                if (checkboxRecordingLeft.Checked && checkboxRecordingRight.Checked)
-                {
-                    Popup popup = new Popup();
-                    popup.StartPosition = FormStartPosition.CenterParent;
-                    popup.richTextBox1.Text = "Please select 1 Recording Direction before pressing Parse Input Data.";
-                    DialogResult dialogresult = popup.ShowDialog();
-                    if (dialogresult == DialogResult.OK)
-                    {
-                        Console.WriteLine("Please select 1 Recording Direction before pressing Parse Input Data.");
-                    }
-                    popup.Dispose();
-                    failedInputCheck = true;
-                    return;
-                }
-            }
-        }
-
-        private void DirectionPresentAndMultipleOutputsPresent()//Returns Form if No Direction and Output are selected 
-        {
-            if (checkboxRecordingLeft.Checked || checkboxRecordingRight.Checked)
-            {
-                if ((checkboxOutputEKEY.Checked) && (checkboxOutputKEY.Checked))
-                {
-                    Popup popup = new Popup();
-                    popup.StartPosition = FormStartPosition.CenterParent;
-                    popup.richTextBox1.Text = "Please select 1 Output Mode before pressing Parse Input Data.";
-                    DialogResult dialogresult = popup.ShowDialog();
-                    if (dialogresult == DialogResult.OK)
-                    {
-                        Console.WriteLine("Please select 1 Output Mode before pressing Parse Input Data.");
-                    }
-                    popup.Dispose();
-                    failedInputCheck = true;
-                    return;
-                }
-            }
-        }*/
-
         private static List<string>[] SortRecordings(string filePath) //Organizes Recording Data to be able to be parsed 
         {
             List<string>[] a = new List<string>[5];
@@ -238,7 +142,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
 #pragma warning restore CS8603 // Possible null reference return.
             }
         }
-        private static List<string> ConstructInputLog(List<string> recordingData, bool[] directionSettings) //Constructs Input Log from Sorted Recording Data 
+        private static List<string> ConstructInputLog(List<string> recordingData, bool[] directionSettings, bool cleanedData) //Constructs Input Log from Sorted Recording Data 
         {
             List<string> constructedInputLog = new List<string>();
             //bool directionDoesNotNeedAdjustment = false;
@@ -275,21 +179,8 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 directionDoesNotNeedAdjustment = true;
             }
 
-            //Determine if player is initially facing Right or Left
-            //Terrible Logic for Determining This Lmfao
-            /*for (int i = 0; i < 60; i++)
-            {
-                if (recordingData[i].Contains("06"))
-                {
-                    directionDoesNotNeedAdjustment = true;
-                    break;
-                }
-            }*/
             if (directionDoesNotNeedAdjustment == true) //Facing Right?
             {
-                //constructedInputLog.Add("Naturally Facing Right. *Manually overlook to see if inputs mapped are correct*");
-                //constructedInputLog.Add("---------------------------");
-                //constructedInputLog.Add("-KEY-");
                 for (int i = 6; i < recordingData.Count; i++)
                 {
                     currentAttack = recordingData[i].Substring(0, 1);
@@ -490,18 +381,21 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 }
             }
 
-            
-            //Before Returning an InputLog, Clean the Dataset per InputLogCleanup()
-            return InputLogCleanup(constructedInputLog);
+
+            //If the data is to be cleaned, return only the cleaned Input Log
+            if (cleanedData)
+                return InputLogCleanup(constructedInputLog);
+            //Otherwise, return the raw Input Log
+            return constructedInputLog;
         }
 
         private static List<string> InputLogCleanup(List<string> inputList)
         {
             var cleanInputList = new List<string>();
-            int pendingFrameCount = 0;            
+            int pendingFrameCount = 0;
 
-            foreach(string key in inputList)
-            {                
+            foreach (string key in inputList)
+            {
                 string[] splitKey = key.Split('\t');
                 string[] pendingKey;
 
@@ -510,12 +404,12 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                     continue;
                 }
 
-                if(cleanInputList.Count > 0)
-                {                    
+                if (cleanInputList.Count > 0)
+                {
                     pendingKey = cleanInputList.Last().Split('\t');
                     //Handle "Empty" Frame - Frames where there is no button input & the frame is held for 1 count
                     if (splitKey[1].Equals("-") && splitKey[2].Equals("1") && cleanInputList.Count > 0)
-                    {                        
+                    {
                         pendingFrameCount = int.Parse(pendingKey[2]) + 1;
                         pendingKey[2] = pendingFrameCount.ToString();
                         cleanInputList.RemoveAt(cleanInputList.Count - 1);
@@ -528,7 +422,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                     if (splitKey[1].Contains("A") || splitKey[1].Contains("B") || splitKey[1].Contains("C") || splitKey[1].Contains("D"))
                     {
                         if (splitKey[2].Equals("1"))
-                        {                            
+                        {
                             pendingFrameCount = int.Parse(pendingKey[2]) + 1;
                             pendingKey[2] = pendingFrameCount.ToString();
                             cleanInputList.RemoveAt(cleanInputList.Count - 1);
@@ -550,15 +444,15 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                         continue;
                     }
 
-                }                
-                
+                }
+
                 cleanInputList.Add(key);
             }
 
-            
+
             return cleanInputList;
         }
-        
+
         public void DisplayAndWriteData(List<string>[] inputLogArray, bool[] outputSettings, int recordingOption)
         //Displaying Data to Form and Writing it to Txt Files 
         {
@@ -586,12 +480,14 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             bool initialFacingRight = outputSettings[0];
             bool outputFacingRight = outputSettings[1];
             bool generateTxtFile = outputSettings[2];
+            bool cleanInputData = outputSettings[3];
 
             List<string[]> textFilesToCreate = new List<string[]>();
 
             string currentDateAndTime = string.Format("{0:MM-dd-yyyy_HH-mm-ss}", DateTime.Now);
 
             string direction;
+            string cleanedData;
             bool outputDirection = true;
             //string writeOutputPath;
 
@@ -600,6 +496,12 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             else
                 direction = "Initially Facing L";
 
+            if (cleanInputData == true)
+                cleanedData = "Cleaned Input";
+            else
+                cleanedData = "Raw";
+
+
             string displayInputLog;
 
 
@@ -607,19 +509,19 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             {
                 displayInputLog = string.Empty;
 
-                displayInputLog = GenerateInputLog(recordingOption, dictInputLogs[recordingOption]);
+                displayInputLog = GenerateInputLog(recordingOption, cleanedData, dictInputLogs[recordingOption]);
 
                 if (generateTxtFile == true)
                 {
                     textFilesToCreate.Clear();
-                    textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption, direction, outputDirection, currentDateAndTime);
+                    textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption, cleanedData, direction, outputDirection, currentDateAndTime);
                 }
             }
             else
             {
                 List<string>[] AllInputLogs = { inputLog, inputLog2, inputLog3, inputLog4, inputLog5 };
-                List<string> AllOutputLogs = new() {GenerateInputLog(0, inputLog), GenerateInputLog(1, inputLog2), GenerateInputLog(2, inputLog3),
-                                                    GenerateInputLog(3, inputLog4), GenerateInputLog(4, inputLog5)};
+                List<string> AllOutputLogs = new() {GenerateInputLog(0, cleanedData, inputLog), GenerateInputLog(1, cleanedData, inputLog2), GenerateInputLog(2, cleanedData, inputLog3),
+                                                    GenerateInputLog(3, cleanedData, inputLog4), GenerateInputLog(4, cleanedData, inputLog5)};
 
                 textboxParsedRecordingKEY.Text = string.Join("---------------------------" + Environment.NewLine, AllOutputLogs.Select(log => string.Join(Environment.NewLine, log)));
 
@@ -628,418 +530,23 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                     for (int i = 0; i < 5; i++)
                     {
                         textFilesToCreate.Clear();
-                        displayInputLog = GenerateInputLog(i + 1, AllInputLogs[i]);
-                        textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption, direction, outputDirection, currentDateAndTime);
+                        displayInputLog = GenerateInputLog(i + 1, cleanedData, AllInputLogs[i]);
+                        textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption, cleanedData, direction, outputDirection, currentDateAndTime);
                     }
                 }
             }
 
-
-
-            /*switch (recordingOption)
-            {
-
-                case 0:
-                    displayInputLog = string.Empty;
-
-                    displayInputLog = GenerateInputLog(recordingOption + 1, inputLog2);
-
-                    if (generateTxtFile == true)
-                        textFilesToCreate.Clear();
-                        textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption + 1, direction, currentDateAndTime);
-
-                    break;
-
-                case 1:
-                    displayInputLog = string.Empty;
-
-                    displayInputLog = GenerateInputLog(recordingOption + 1, inputLog2);
-
-                    if (generateTxtFile == true)
-                        textFilesToCreate.Clear();
-                        textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption + 1, direction, currentDateAndTime);
-
-                    break;
-
-                case 2:
-                    displayInputLog = string.Empty;
-
-                    displayInputLog = GenerateInputLog(recordingOption + 1, inputLog2);
-
-                    if (generateTxtFile == true)
-                        textFilesToCreate.Clear();
-                        textFilesToCreate = GenerateTextFiles(displayInputLog, textFilesToCreate, recordingOption + 1, direction, currentDateAndTime);
-
-                    break;
-
-                case 3:
-                    break;
-
-                case 4:
-                    break;
-
-                case 5:
-                    break;
-                    *//*case 1:
-                        string displayInputLog2 = "";
-                        displayInputLog2 += "Recording " + (recordingOption + 1) + System.Environment.NewLine;
-                        displayInputLog2 += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLog2 += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLog2 += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog2)
-                        {
-                            displayInputLog2 += key + System.Environment.NewLine;
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, displayInputLog2);
-                        }
-                        textboxParsedRecordingKEY.Text = displayInputLog2;
-                        break;
-                    case 2:
-                        string displayInputLog3 = "";
-                        displayInputLog3 += "Recording " + (recordingOption + 1) + System.Environment.NewLine;
-                        displayInputLog3 += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLog3 += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLog3 += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog3)
-                        {
-                            displayInputLog3 += key + System.Environment.NewLine;
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, displayInputLog3);
-                        }
-                        textboxParsedRecordingKEY.Text = displayInputLog3;
-                        break;
-                    case 3:
-                        string displayInputLog4 = "";
-                        displayInputLog4 += "Recording " + (recordingOption + 1) + System.Environment.NewLine;
-                        displayInputLog4 += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLog4 += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLog4 += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog4)
-                        {
-                            displayInputLog4 += key + System.Environment.NewLine;
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, displayInputLog4);
-                        }
-                        textboxParsedRecordingKEY.Text = displayInputLog4;
-                        break;
-                    case 4:
-                        string displayInputLog5 = "";
-                        displayInputLog5 += "Recording " + (recordingOption + 1) + System.Environment.NewLine;
-                        displayInputLog5 += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLog5 += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLog5 += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog5)
-                        {
-                            displayInputLog5 += key + System.Environment.NewLine;
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, displayInputLog5);
-                        }
-                        textboxParsedRecordingKEY.Text = displayInputLog5;
-                        break;
-                    case 5:
-                        string displayInputLogAll = "";
-                        string record1 = "", record2 = "", record3 = "", record4 = "", record5 = "";
-                        List<string> currentRecording = new List<string>();
-                        displayInputLogAll += "Recording " + 1 + System.Environment.NewLine;
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLogAll += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLogAll += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog)
-                        {
-                            displayInputLogAll += key + System.Environment.NewLine;
-                            currentRecording.Add(key);
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            currentRecording.Insert(0, "Recording" + " 1");
-                            currentRecording.Insert(1, "---------------------------");
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-KEY-");
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-EKEY-");
-                            }
-                            foreach (string x in currentRecording)
-                            {
-                                record1 += x + System.Environment.NewLine;
-                            }
-                            currentRecording.Clear();
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 1, " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 1, " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, record1);
-                        }
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        displayInputLogAll += "Recording " + 2 + System.Environment.NewLine;
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLogAll += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLogAll += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog2)
-                        {
-                            displayInputLogAll += key + System.Environment.NewLine;
-                            currentRecording.Add(key);
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            currentRecording.Insert(0, "Recording" + " 2");
-                            currentRecording.Insert(1, "---------------------------");
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-KEY-");
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-EKEY-");
-                            }
-                            foreach (string x in currentRecording)
-                            {
-                                record2 += x + System.Environment.NewLine;
-                            }
-                            currentRecording.Clear();
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 2, " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 2, " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, record2);
-                        }
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        displayInputLogAll += "Recording " + 3 + System.Environment.NewLine;
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLogAll += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLogAll += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog3)
-                        {
-                            displayInputLogAll += key + System.Environment.NewLine;
-                            currentRecording.Add(key);
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            currentRecording.Insert(0, "Recording" + " 3");
-                            currentRecording.Insert(1, "---------------------------");
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-KEY-");
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-EKEY-");
-                            }
-                            foreach (string x in currentRecording)
-                            {
-                                record3 += x + System.Environment.NewLine;
-                            }
-                            currentRecording.Clear();
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 3, " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 3, " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, record3);
-                        }
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        displayInputLogAll += "Recording " + 4 + System.Environment.NewLine;
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLogAll += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLogAll += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog4)
-                        {
-                            displayInputLogAll += key + System.Environment.NewLine;
-                            currentRecording.Add(key);
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            currentRecording.Insert(0, "Recording" + " 4");
-                            currentRecording.Insert(1, "---------------------------");
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-KEY-");
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-EKEY-");
-                            }
-                            foreach (string x in currentRecording)
-                            {
-                                record4 += x + System.Environment.NewLine;
-                            }
-                            currentRecording.Clear();
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 4, " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 4, " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, record4);
-                        }
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        displayInputLogAll += "Recording " + 5 + System.Environment.NewLine;
-                        displayInputLogAll += "---------------------------" + System.Environment.NewLine;
-                        if (checkboxOutputKEY.Checked)
-                        {
-                            displayInputLogAll += "-KEY-" + System.Environment.NewLine;
-                        }
-                        if (checkboxOutputEKEY.Checked)
-                        {
-                            displayInputLogAll += "-EKEY-" + System.Environment.NewLine;
-                        }
-                        foreach (string key in inputLog5)
-                        {
-                            displayInputLogAll += key + System.Environment.NewLine;
-                            currentRecording.Add(key);
-                        }
-                        if (modeSelectGenerateTxt == true)
-                        {
-                            currentRecording.Insert(0, "Recording" + " 5");
-                            currentRecording.Insert(1, "---------------------------");
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-KEY-");
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                currentRecording.Insert(2, "-EKEY-");
-                            }
-                            foreach (string x in currentRecording)
-                            {
-                                record5 += x + System.Environment.NewLine;
-                            }
-                            currentRecording.Clear();
-                            writeOutputPath = "";
-                            if (checkboxOutputKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 5, " + direction + ", " + outputRight + ", " + currentDateAndTime + ".txt";
-                            }
-                            if (checkboxOutputEKEY.Checked)
-                            {
-                                writeOutputPath = defaultOutputPath + "\\" + "Recording 5, " + direction + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
-                            }
-                            File.WriteAllText(writeOutputPath, record5);
-                        }
-                        textboxParsedRecordingKEY.Text = displayInputLogAll;
-                        Console.Write(displayInputLogAll);
-                        break;*//*
-            }*/
-
             foreach (string[] text in textFilesToCreate)
                 File.WriteAllText(text[0], text[1]);
         }
-        private string GenerateInputLog(int recordingOption, List<string> inputLog)
+
+
+
+        private string GenerateInputLog(int recordingOption, string cleanedData, List<string> inputLog)
         {
             string displayInputLog = string.Empty;
 
-            displayInputLog += "Recording " + (recordingOption + 1) + System.Environment.NewLine;
+            displayInputLog += "Recording " + (recordingOption + 1) + " - " + cleanedData + System.Environment.NewLine;
             displayInputLog += "---------------------------" + System.Environment.NewLine;
             displayInputLog += "-KEY-" + System.Environment.NewLine;
 
@@ -1054,17 +561,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             return displayInputLog;
         }
 
-        /*private string CreateInputLogDisplay(int recordingOption, List<string> inputLog)
-        {
-            string displayInputLog = string.Empty;
-
-            displayInputLog = GenerateInputLog(recordingOption + 1, inputLog);
-            textboxParsedRecordingKEY.Text = displayInputLog;
-            
-            return displayInputLog;
-        }*/
-
-        private List<string[]> GenerateTextFiles(string displayInputLog, List<string[]> textFilesToCreate, int recordingOption, string direction, bool outputDirection, string currentDateAndTime)
+        private List<string[]> GenerateTextFiles(string displayInputLog, List<string[]> textFilesToCreate, int recordingOption, string cleanedData, string direction, bool outputDirection, string currentDateAndTime)
         {
             string writeOutputPath = string.Empty;
             string outputLeft = "Adjusted to Face Left";
@@ -1073,15 +570,15 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
             //If output direction == true, use Facing Right. Otherwise, use Facing Left.
             if (outputDirection == true && direction.Equals("Initially Facing L"))
             {
-                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + outputRight + ", " + currentDateAndTime + ".txt";
+                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + cleanedData + ", " + outputRight + ", " + currentDateAndTime + ".txt";
             }
             else if (outputDirection == false && direction.Equals("Initially Facing R"))
             {
-                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
+                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + cleanedData + ", " + outputLeft + ", " + currentDateAndTime + ".txt";
             }
             else
             {
-                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + currentDateAndTime + ".txt";
+                writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + cleanedData + ", " + direction + ", " + currentDateAndTime + ".txt";
             }
 
             //string writeOutputPath = defaultOutputPath + "\\" + "Recording " + (recordingOption + 1) + ", " + direction + ", " + currentDateAndTime + ".txt";
@@ -1176,7 +673,7 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         private void BtnParse_Click(object sender, EventArgs e) //Displays User P4U2 Save Data according to recording selected, direction faced, and output mode
         {
             int recordingOption = 0;
-            bool initialFacingRight = true, outputFacingRight = true, generateTxtFile = false;
+            bool initialFacingRight = true, outputFacingRight = true, generateTxtFile = false, cleanInputData = false;
 
             //Erroneous Input Checks
             /*failedInputCheck = false;
@@ -1231,28 +728,42 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
                 generateTxtFile = true;
             }
 
+            //Input Cleaning Setting
+            if (rawInputDataToolStripMenuItem.Checked)
+            {
+                cleanInputDataToolStripMenuItem.Checked = false;
+                cleanInputData = false;
+            }
+
+            if (cleanInputDataToolStripMenuItem.Checked)
+            {
+                rawInputDataToolStripMenuItem.Checked = false;
+                cleanInputData = true;
+            }
+
+
             //Sorted Recording data from save.dat
             List<string>[] sortedRecordings = SortRecordings(saveFilePath);
 
             //Parsing Settings
-            bool[] outputSettings = { initialFacingRight, outputFacingRight, generateTxtFile };
+            bool[] outputSettings = { initialFacingRight, outputFacingRight, generateTxtFile, cleanInputData };
 
             //Recording 1
-            List<string> inputLog = ConstructInputLog(sortedRecordings[0], outputSettings);
+            List<string> inputLog = ConstructInputLog(sortedRecordings[0], outputSettings, cleanInputData);
             //List<string> eInputLog = inputLog;
 
             //Recording 2
-            List<string> inputLog2 = ConstructInputLog(sortedRecordings[1], outputSettings);
+            List<string> inputLog2 = ConstructInputLog(sortedRecordings[1], outputSettings, cleanInputData);
             //List<string> eInputLog2 = inputLog2;
 
             //Recording 3
-            List<string> inputLog3 = ConstructInputLog(sortedRecordings[2], outputSettings);
+            List<string> inputLog3 = ConstructInputLog(sortedRecordings[2], outputSettings, cleanInputData);
 
             //Recording 4
-            List<string> inputLog4 = ConstructInputLog(sortedRecordings[3], outputSettings);
+            List<string> inputLog4 = ConstructInputLog(sortedRecordings[3], outputSettings, cleanInputData);
 
             //Recording 5
-            List<string> inputLog5 = ConstructInputLog(sortedRecordings[4], outputSettings);
+            List<string> inputLog5 = ConstructInputLog(sortedRecordings[4], outputSettings, cleanInputData);
 
             //All Recordings
             List<string>[] inputLogs = { inputLog, inputLog2, inputLog3, inputLog4, inputLog5 };
@@ -1266,5 +777,35 @@ namespace P4U2_Training_Mode_Recording_Input_Parsing_Tool
         {
             textboxParsedRecordingKEY.Text = "";
         }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            ToolStripItem clickedItem = (ToolStripItem)e.ClickedItem;
+
+            // Check if the clicked item is a ToolStripMenuItem
+            if (clickedItem is ToolStripMenuItem)
+            {
+                ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem)clickedItem;
+
+                // Uncheck other items in the same menu strip
+                foreach (ToolStripMenuItem item in clickedMenuItem.Owner.Items)
+                {
+                    if (item != clickedMenuItem && item.Checked)
+                    {
+                        item.Checked = false;
+                    }
+                }
+
+                // Toggle the checked state of the clicked item
+                clickedMenuItem.Checked = !clickedMenuItem.Checked;
+
+                // If a recording has been parsed, update the textbox w/ the respective Raw/Cleaned data setting
+                if (textboxParsedRecordingKEY != null && textboxParsedRecordingKEY.Text != "")
+                {
+                    btnParse.PerformClick();
+                }
+            }
+        }
+
     }
 }
